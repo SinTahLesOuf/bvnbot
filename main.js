@@ -5,16 +5,11 @@ const bot = new Discord.Client();
 var prefix = "$";
 var token = process.env.TOKEN
 
-bot.on("guildMemberAdd", member => {
-
-    member.guild.channels.cache.get("846358448526721036").send(`**Bienvenue** à toi <@${member.id}> ! N'hésite pas à aller prendre tes <#${"846356951138697276"}> et venir discuter tranquillement avec nous ! 🎉`).then(
-        member.guild.channels.cache.get("864489838903033867").send(`**${member.user.tag}** a rejoint le serveur.`)
-    )
-}
-)
-
-bot.on("guildMemberRemove", member => {
-member.guild.channels.cache.get("864489838903033867").send(`**${member.user.tag}** a quitté le serveur.`)
+bot.on('message',() => {
+    if(message.content.includes("UwU") {
+       message.delete()
+       message.channel.send("Votre message a été supprimé car il contenait un mot banni.")
+       }
 })
 
 bot.on('ready',() => {
