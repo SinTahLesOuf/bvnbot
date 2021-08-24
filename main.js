@@ -3,7 +3,7 @@ const fs = require("fs");
 const bot = new Discord.Client();
 
 var prefix = "$";
-var token = "ODc4MDM1MTkxNjUyODMxMjUz.YR7T_g._4quOQcLSQfx5VNVWEGsVPfRfag";
+var token = process.env.TOKEN
 
 bot.on("guildMemberAdd", member => {
 
