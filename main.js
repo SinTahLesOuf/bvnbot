@@ -7,6 +7,7 @@ var token = process.env.TOKEN
 
 bot.on('message',() => {
     
+    let args = message.content.slice(prefix.length).trim().split(/ +/g);
     let user = message.mentions.users.first() || bot.users.cache.get(args[0]) || message.author;
     let avatar = user.avatarURL({ dynamic: true, size: 1024 });
     
@@ -16,6 +17,7 @@ bot.on('message',() => {
        }
        
     if(message.content.startsWith(prefix + "pp")) {
+        
         let PP = new Discord.MessageEmbed()
         .setAuthor(`Voici l'avatar de ${user}`)
         .setImage(avatar)
