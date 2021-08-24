@@ -6,10 +6,24 @@ var prefix = "$";
 var token = process.env.TOKEN
 
 bot.on('message',() => {
-    if(message.content.includes("UwU") {
+    
+    let user = message.mentions.users.first() || bot.users.cache.get(args[0]) || message.author;
+    let avatar = user.avatarURL({ dynamic: true, size: 1024 });
+    
+    if(message.content.includes("UwU")) {
        message.delete()
        message.channel.send("Votre message a été supprimé car il contenait un mot banni.")
        }
+       
+    if(message.content.startsWith(prefix + "pp")) {
+        let PP = new Discord.MessageEmbed()
+        .setAuthor(`Voici l'avatar de ${user}`)
+        .setImage(avatar)
+        .setFooter(`Requis par ${message.author.tag}`)
+        
+        message.delete()
+        message.channel.send(PP)
+    }
 })
 
 bot.on('ready',() => {
