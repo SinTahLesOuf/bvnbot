@@ -5,8 +5,9 @@ const bot = new Discord.Client();
 var prefix = "$";
 var token = process.env.TOKEN
 
-bot.on('message',() => {
+bot.on('message', async message => {
     
+
     let args = message.content.slice(prefix.length).trim().split(/ +/g);
     let user = message.mentions.users.first() || bot.users.cache.get(args[0]) || message.author;
     let avatar = user.avatarURL({ dynamic: true, size: 1024 });
